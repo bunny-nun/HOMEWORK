@@ -2,7 +2,7 @@
 
 Console.WriteLine("Введите трехзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num < 100 || num > 999)
+while (num < 100 || num > 999)
 {
     Console.WriteLine("Введено неверное число. Введите трехзначное число: ");
     num = Convert.ToInt32(Console.ReadLine());
