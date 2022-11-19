@@ -11,7 +11,8 @@ void newArray(int[] numbers)
 {
     int n = 1;
     int index = 0;
-    while (index < 5)
+    int length = numbers.Length;
+    while (index < length)
     {
         numbers[index] = num % (n * 10) / n;
         Console.Write(numbers[index] + " ");
@@ -19,14 +20,36 @@ void newArray(int[] numbers)
         index++;
     }
 }
-int[] array = new int[5];
+
+int lengthDef(int numLength)
+{
+
+    int y = 0;
+    while (numLength > 0)
+    {
+        numLength = numLength / 10;
+        y++;
+    }
+    return y;
+}
+int def = lengthDef(num);
+Console.WriteLine(def);
+int[] array = new int[def];
 newArray(array);
 Console.WriteLine();
-if (array[0] == array[4] && array[1] == array[3])
+int g1 = 0;
+int g2 = def - 1;
+while (g1 < g2)
 {
-    Console.WriteLine($"Число {num} является палиндромом");
+    if (array[g1] != array[g2])
+    {
+        Console.WriteLine($"Число {num} не является палиндромом");
+        break;
+    }
+    else
+    {
+        g1++;
+        g2--;
+    }
 }
-else
-{
-    Console.WriteLine($"Число {num} не является палиндромом");
-}
+if (g1 == g2 || g1 > g2) Console.WriteLine($"Число {num} является палиндромом");
