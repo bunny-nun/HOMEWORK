@@ -16,11 +16,18 @@ while (num < 0)
 
 string newNumber(int number)
 {
-    string number01 = System.String.Empty;
-    while (number > 0)
+    string number01 = String.Empty;
+    if (number == 0)
     {
-        number01 = number01 + (number % 10);
-        number = number / 10;
+        number01 = "0";
+    }
+    else
+    {
+        while (number > 0)
+        {
+            number01 = number01 + (number % 10);
+            number = number / 10;
+        }
     }
     return number01;
 }
