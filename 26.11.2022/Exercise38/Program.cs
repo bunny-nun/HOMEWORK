@@ -41,5 +41,4 @@ double FindMin(double[] array01)
 }
 
 double dif = FindMax(array) - FindMin(array);
-
 Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {dif}");
