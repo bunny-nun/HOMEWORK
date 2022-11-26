@@ -24,4 +24,4 @@ for (int i = 1; i < length; i += 2)
 {
     sum += array[i];
 }
-Console.WriteLine($"Cумму элементов, стоящих на нечетных позициях {sum}");
+Console.WriteLine($"Cумма элементов, стоящих на нечетных позициях {sum}");
