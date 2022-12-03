@@ -46,7 +46,7 @@ PrintArray(FillArray(newArray));
 
 void FindElement(int[,] array03, int posM, int posN)
 {
-    if (posM < array03.GetLength(0) && posN < array03.GetLength(1))
+    if (posM < array03.GetLength(0) && posM >= 0 && posN < array03.GetLength(1) && posN >= 0)
     {
         Console.WriteLine($"Элемент с позицией: строка {posM}, столбец {posN} равен {array03[posM, posN]}");
     }
