@@ -5,7 +5,7 @@
 11 16 15 06
 10 09 08 07*/
 
-int m = 4;
+int m = 10;
 
 int[,] FillArray(int steps)
 {
@@ -33,20 +33,24 @@ int[,] FillArray(int steps)
         }
         horizontal--;
         vertical--;
-        while (vertical > circle)
+        while (vertical >= circle)
         {
             newArray[horizontal, vertical] = number;
             number++;
             vertical--;
         }
-        steps--;
+        horizontal--;
+        vertical++;
         circle++;
-        while (horizontal > circle)
+        while (horizontal >= circle)
         {
             newArray[horizontal, vertical] = number;
             number++;
             horizontal--;
         }
+        horizontal++;
+        vertical++;
+        steps--;
     }
     return newArray;
 }
