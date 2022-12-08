@@ -30,6 +30,7 @@ void PrintArray(int[][] array02)
         int rowLength = ArrayLength(array02, i);
         int lastRowLength = ArrayLength(array02, (array02.Length - 1));
         int startPosition = ZeroPosition(rowLength, lastRowLength);
+        int position;
         if (i == (array02.Length - 1))
         {
             Console.SetCursorPosition(startPosition, i);
@@ -44,12 +45,12 @@ void PrintArray(int[][] array02)
             startPosition = ZeroPosition(rowLength, lastRowLength);
             for (int j = 0; j < array02[i].Length; j++)
             {
-                startPosition += ((ElementLength(array02, i + 1, j) + ElementLength(array02, i + 1, j + 1) + 2) / 2);
-                Console.SetCursorPosition(startPosition, i);
-                Console.Write($"{array02[i][j]} ");
+                position = ToElementLength(array02, i + 1, j + 1, startPosition);
+                Console.SetCursorPosition(position, i);
+                Console.Write($"{array02[i][j]}");
             }
+            Console.WriteLine();
         }
-        Console.WriteLine();
     }
 }
 
@@ -73,16 +74,18 @@ int ArrayLength(int[][] array04, int index)
     return count;
 }
 
-int ElementLength(int[][] array04, int index01, int index02)
+int ToElementLength(int[][] array05, int index01, int index02, int startPosition)
 {
     int count = 0;
-    for (int i = array04[index01][index02]; i > 0; i /= 10)
+    for (int i = 0; i < index02; i++)
     {
-        count++;
+        for (int j = array05[index01][i]; j > 0; j /= 10)
+        {
+            count++;
+        }
     }
+    count += startPosition + index02 - 1;
     return count;
 }
 
 PrintArray(FillArray(n));
-
-
