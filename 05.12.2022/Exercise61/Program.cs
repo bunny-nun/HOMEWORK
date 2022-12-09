@@ -65,10 +65,7 @@ int ArrayLength(int[][] array04, int index)
     int count = 0;
     for (int i = 0; i < array04[index].Length; i++)
     {
-        for (int j = array04[index][i]; j > 0; j /= 10)
-        {
-            count++;
-        }
+        count += Convert.ToString(array04[index][i]).Length;
     }
     count += array04[index].Length - 1;
     return count;
@@ -79,10 +76,7 @@ int ToElementLength(int[][] array05, int index01, int index02, int startPosition
     int count = 0;
     for (int i = 0; i < index02; i++)
     {
-        for (int j = array05[index01][i]; j > 0; j /= 10)
-        {
-            count++;
-        }
+        count += Convert.ToString(array05[index01][i]).Length;
     }
     count += startPosition + index02 - 1;
     return count;
